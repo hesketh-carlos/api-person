@@ -1,0 +1,44 @@
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        globally_quoted_identifiers: 'true'
+  datasource:
+    hikari:
+      maxLifeTime: '30000'
+      connectionTimeout: '30000'
+    platform: postgres
+    url: >-
+      jdbc:postgresql://localhost:5432/hesketh-db
+    username: 'hesketh-usr'
+    password: 'hesketh-pwd'
+  profiles:
+    active: 'DEV'
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+  cloud:
+  gcp:
+    logging:
+      enabled: true
+
+server:
+  servlet:
+    context-path: /api
+  port: '${PORT:8080}'
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: ON_PARAM
+    include-exception: 'false'
+
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n'

@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db-api-hesketh
+    environment:
+       - POSTGRES_DB=hesketh-db
+       - POSTGRES_USER=hesketh-usr
+       - POSTGRES_PASSWORD=hesketh-pwd
+    ports:
+       - '5432:5432'
