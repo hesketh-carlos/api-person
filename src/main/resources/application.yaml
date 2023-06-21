@@ -16,7 +16,7 @@ spring:
       connectionTimeout: '30000'
     platform: postgres
     url: >-
-      jdbc:postgresql://localhost:5432/hesketh-db
+      jdbc:postgresql://localhost:5499/hesketh-db
     username: 'hesketh-usr'
     password: 'hesketh-pwd'
   profiles:
@@ -32,7 +32,7 @@ spring:
 server:
   servlet:
     context-path: /api
-  port: '${PORT:8080}'
+  port: '${PORT:8088}'
   error:
     include-message: always
     include-binding-errors: always

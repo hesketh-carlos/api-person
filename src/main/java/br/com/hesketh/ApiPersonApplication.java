@@ -44,7 +44,7 @@ public class ApiPersonApplication extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/actuator/**").permitAll()
-				.antMatchers("/data/person/**").permitAll();
+				.antMatchers("/person/**").permitAll();
 
 		if (!perfilAmbiente.equalsIgnoreCase(AMBIENTE_PRD)) {
 			http.authorizeRequests().antMatchers(urlSwagger).permitAll();

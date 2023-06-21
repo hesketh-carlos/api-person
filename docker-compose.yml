@@ -8,4 +8,4 @@ services:
        - POSTGRES_USER=hesketh-usr
        - POSTGRES_PASSWORD=hesketh-pwd
     ports:
-       - '5432:5432'
+       - '5499:5432'
